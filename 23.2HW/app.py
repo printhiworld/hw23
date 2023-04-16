@@ -22,9 +22,9 @@ def apply_cmd(it, cmd, value):
     if cmd == 'map':
         return map(lambda x: x.split()[int(value)], it)
     if cmd == 'unique':
-        return set(it, reversed=(value=='desc'))
+        return iter(set(it))
     if cmd == 'sort':
-        return iter(sorted(it))
+        return sorted(it, reverse=(value=='desc'))
     if cmd == 'limit':
         return limit(it, int(value))
 def build_query(it, cmd1, value1, cmd2, value2):
